@@ -31,5 +31,15 @@ return {
       noremap = true,
       desc = "Format selected code with coc-format"
     })
+  -- ノーマルモードで
+  -- LeaderhでHover
+  keyset('n', '<Leader>h', ':<C-u>call CocAction("doHover")<CR>', { silent = true })
+  -- LeaderdfでDefinition
+  keyset('n', '<Leader>df', '<Plug>(coc-definition)', { silent = true })
+  -- LeaderrfでReferences
+  keyset('n', '<Leader>rf', '<Plug>(coc-references)', { silent = true })
+  -- LeaderrnでRename
+  keyset('n', '<Leader>rn', '<Plug>(coc-rename)', { silent = true })
+
   end,
 }
