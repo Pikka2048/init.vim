@@ -1,0 +1,25 @@
+{
+  "jedi": {
+    "enable": true,
+    "startupMessage": false,
+    "coc.preferences.formatOnSaveFiletypes": ["python"],
+    "executable.command": "~/.pyenv/versions/3.11.10/bin/jedi-language-server"
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+  "python": ["black", "isort", "docformatter"]
+  },
+  "diagnostic-languageserver.formatters": {
+    "black": {
+      "command": "black",
+      "args": ["-q", "-"]
+    },
+    "isort": {
+      "command": "isort",
+      "args": ["-q", "-"]
+    },
+    "docformatter": {
+      "command": "docformatter",
+      "args": ["-"]
+    }
+  }
+}  
