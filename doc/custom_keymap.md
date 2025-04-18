@@ -26,7 +26,7 @@
 | coc.nvim | LSP・補完・フォーマッタ統合 | coc-settings.json参照 |
 | nord.nvim | カラースキーム | なし |
 | fzf.vim | Fuzzy検索 | fzf本体（別途インストール必要） |
-| gen.nvim | AI補助（推測される） | なし |
+| gen.nvim | ローカルLLMと連携 | なし |
 
 ---
 
@@ -99,3 +99,27 @@ vim.fn.chansend(terminal_job_id, cmd)
 - クリップボード：システムクリップボードと共有（`unnamedplus`）
 
 ---
+
+### coc-nvim
+
+現在インストール済み拡張機能
+手動で入れている
+```
+{
+  "dependencies": {
+    "coc-rust-analyzer": ">=0.81.2",
+    "coc-clangd": ">=0.32.0",
+    "coc-go": ">=1.3.35",
+    "coc-css": ">=2.1.0",
+    "coc-json": ">=1.9.3",
+    "coc-html": ">=1.8.0",
+    "coc-yaml": ">=1.9.1",
+    "coc-java": ">=1.26.1",
+    "coc-markdownlint": ">=1.36.0",
+    "coc-docker": ">=1.0.2",
+    "coc-tsserver": ">=2.2.5",
+    "coc-phpls": ">=2.2.4",
+    "coc-pyright": ">=1.1.398"
+  }
+}
+```
