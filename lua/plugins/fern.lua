@@ -12,15 +12,15 @@ return {
   config = function()
     vim.g["fern#renderer"] = "nerdfont"
     vim.g["fern#default_hidden"] = 1
-    
+
     local opts = { noremap = true, silent = true }
-    vim.keymap.set('n', '<Leader>e', ':Fern . -drawer -toggle<CR>', opts)
+    vim.keymap.set('n', '<Leader>e', ':Fern . -drawer -stay<CR>', opts)
     
     vim.api.nvim_create_autocmd("FileType", {
       pattern = "fern",
       callback = function()
         local buffer_opts = { buffer = true, noremap = true, silent = true }
-        vim.keymap.set('n', 'N', ':Fern . -drawer<CR>', buffer_opts)
+        vim.keymap.set('n', 'N', ':Fern . -drawer -stay<CR>', buffer_opts)
         
         vim.opt_local.number = false
         vim.opt_local.relativenumber = false

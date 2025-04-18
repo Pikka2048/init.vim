@@ -16,3 +16,34 @@ autocmd('TermOpen', {
         vim.cmd('startinsert')
     end,
 })
+
+-- lua/session.lua などに配置
+local session_dir  = vim.fn.stdpath('state') .. '/sessions'
+local session_file = session_dir .. '/last.vim'
+vim.fn.mkdir(session_dir, 'p')
+
+-- 必要な項目を追加／整理
+vim.opt.sessionoptions = {
+  'buffers','curdir','folds','help','winsize','winpos',
+  'tabpages','globals','terminal'   -- 端末レイアウトを含める
+}
+
+-- 起動時に args が無ければ復元
+vim.api.nvim_create_autocmd('VimEnter', {
+  callback = function()
+    if vim.fn.argc(-1) == 0 and vim.loop.fs_stat(session_file) then
+      vim.cmd('silent! source ' .. vim.fn.fnameescape(session_file))
+      -- Fern ドロワーを必ず左側に再表示
+      vim.cmd('silent! Fern . -drawer -stay')
+    end
+  end,
+  nested = true,
+})
+
+-- 終了前に上書き保存
+vim.api.nvim_create_autocmd('VimLeavePre', {
+  callback = function()
+    vim.cmd('silent! mksession! ' .. vim.fn.fnameescape(session_file))
+  end,
+})
+

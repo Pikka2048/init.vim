@@ -13,9 +13,13 @@ keymap('n', '<C-t>x', ':split | terminal<CR>', opts)
 keymap('n', '<C-t>', ':terminal<CR>', opts)
 keymap('t', '<ESC>', '<C-\\><C-n>', opts)
 
+-- vimをまとめて終了する
+vim.api.nvim_set_keymap('n', '<leader>q', ':qa<CR>', {noremap = true, silent = true})
+
 -- バッファ操作
-keymap('n', '<C-n>', ':bnext<CR>', opts)
-keymap('n', '<C-p>', ':bprevious<CR>', opts)
+keymap('n', '<C-l>', ':bnext<CR>', opts)
+keymap('n', '<C-h>', ':bprevious<CR>', opts)
+keymap('n', '<C-d>', ':bdelete<CR>', opts)
 
 -- F5でPython実行
 keymap('n', '<F5>', require('core.functions').run_python, opts)

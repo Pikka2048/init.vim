@@ -25,6 +25,8 @@ require("lazy").setup({
   require('plugins.coc'),
   require('plugins.nord'),
   require('plugins.fzf'),
+  require('plugins.gen'),
+
 })
 
 -- ~/.config/nvim/lua/plugins/fern.lua
